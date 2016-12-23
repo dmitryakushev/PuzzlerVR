@@ -21,7 +21,7 @@ public class GameLogic : MonoBehaviour {
     }
 
     public void startPuzzle() { //Begin the puzzle sequence
-        toggleUI();
+        //toggleUI();
         iTween.MoveTo (player, 
             iTween.Hash (
                 "position", playPoint.transform.position, 
@@ -29,16 +29,21 @@ public class GameLogic : MonoBehaviour {
                 "easetype", "linear"
             )
         );
+		startUI.SetActive (false);
 
     }
 
     public void resetPuzzle() { //Reset the puzzle sequence
+		restartUI.SetActive(false);
+		startUI.SetActive (true);
         player.transform.position = startPoint.transform.position;
-        toggleUI ();
+        //toggleUI ();
     }
 
 
     public void puzzleSuccess() { //Do this when the player gets it right
+		//toggleUI();
+		restartUI.SetActive(true);
         iTween.MoveTo (player, 
             iTween.Hash (
                 "position", restartPoint.transform.position, 
