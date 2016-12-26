@@ -52,8 +52,8 @@ public class lightUp : MonoBehaviour {
 
 	public void patternLightUp() { //Lightup behavior when the pattern shows.
 		this.GetComponent<MeshRenderer>().material = lightUpMaterial; //Assign the hover material
-		ParticleSystem ps = this.GetComponentInChildren<ParticleSystem>();
-		ps.Play (); //Turn on particle emmission
+		//ParticleSystem ps = this.GetComponentInChildren<ParticleSystem>();
+		//ps.Play (); //Turn on particle emmission
 
 		//this.GetComponentInChildren<ParticleSystem>().enableEmission = true; //Turn on particle emmission
 		this.GetComponent<GvrAudioSource> ().Play (); //Play the audio attached
