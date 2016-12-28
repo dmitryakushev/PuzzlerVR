@@ -5,7 +5,7 @@ public class GameLogic : MonoBehaviour {
 
 	public GameObject player;
 	public GameObject eventSystem;
-	public GameObject startUI, restartUI;
+	public GameObject startUI, restartUI, helpUI;
 	public GameObject startPoint, playPoint, restartPoint;
 	public GameObject[] puzzleSpheres; //An array to hold our puzzle spheres
 
@@ -65,6 +65,7 @@ public class GameLogic : MonoBehaviour {
 	public void startPuzzle() { //Begin the puzzle sequence
 		//Generate a random number one through five, save it in an array.  Do this n times.
 		//Step through the array for displaying the puzzle, and checking puzzle failure or success.
+		helpUI.SetActive (false);
 		startUI.SetActive (false);
 		eventSystem.SetActive(false);
 		iTween.MoveTo (player, playPoint.transform.position, 5f);
@@ -73,6 +74,12 @@ public class GameLogic : MonoBehaviour {
 		currentSolveIndex = 0; //Set our puzzle index at 0
 
 	}
+
+	public void showHelp(){ //Shows HowToPlay canvas
+		startUI.SetActive (false);
+		helpUI.SetActive (true);
+	}
+
 
 	void displayPattern() { //Invoked repeating.
 		currentlyDisplayingPattern = true; //Let us know were displaying the pattern
